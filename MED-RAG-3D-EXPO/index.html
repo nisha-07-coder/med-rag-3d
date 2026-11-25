@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MED-RAG: Inside the Intelligence</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="gl"></canvas>
+<div id="load">Loading MED-RAG…</div>
+
+<!-- Cinematic opening -->
+<section id="intro">
+  <div class="doc"><i></i><i></i><i></i><i></i><i></i><b class="scan"></b></div>
+  <h1>MED-RAG</h1>
+  <h2>INSIDE THE INTELLIGENCE</h2>
+  <p>From Medical Documents to Evidence-Grounded Answers.</p>
+  <button id="enter" class="cta">[ ENTER THE MED-RAG WORLD ]</button>
+</section>
+
+<!-- Main interface (hidden until entering) -->
+<main id="hud" hidden>
+  <header>
+    <b>MED-RAG</b>
+    <nav>
+      <button data-open="who">Who it helps</button>
+      <button id="mode">Mode: Simple</button>
+      <button id="fs">Full screen</button>
+      <button data-open="before">Before / After</button>
+      <button data-open="demo">Question demo</button>
+      <button data-open="vs">MED-RAG vs general AI</button>
+      <button id="overview">Full architecture</button>
+    </nav>
+  </header>
+
+  <aside id="panel" class="glass"></aside>
+
+  <footer class="glass">
+    <button id="prev" title="Previous stage">Prev</button>
+    <button id="play">Start journey</button>
+    <button id="next" title="Next stage">Next</button>
+    <button id="replay">Replay</button>
+    <div id="dots"></div>
+    <div id="bar"><i></i></div>
+  </footer>
+  <p class="note">Animations are illustrative demonstrations, not live system telemetry. Prototype only: not a diagnosis or treatment tool.</p>
+</main>
+
+<!-- Modals -->
+<div class="modal" id="m-who" hidden><div class="glass"><button class="x">Close</button>
+  <h3>Who MED-RAG helps</h3>
+  <div class="two3">
+    <div class="card"><h4>Patient</h4><p>Wants to understand information in a medical report.</p></div>
+    <div class="card"><h4>Caregiver or family member</h4><p>Wants to find specific information in a patient's documents.</p></div>
+    <div class="card"><h4>Healthcare professional</h4><p>May use it as an information-retrieval aid.</p></div>
+  </div>
+  <p class="q">Example: "What is my current HbA1c level?"</p>
+  <p class="small">MED-RAG helps retrieve and understand information from uploaded documents. It does not replace doctors and gives no diagnosis or treatment.</p>
+</div></div>
+
+<div class="modal" id="m-before" hidden><div class="glass"><button class="x">Close</button>
+  <h3>Before and after: document to chunks</h3>
+  <div class="two">
+    <div><h4>Original PDF page</h4><div class="pdf" id="pdfv">Lab Report (sample)<br>Patient: [illustrative]<br>HbA1c: 8.1 %<br>Fasting glucose: 142 mg/dL<br>Clinical note: follow-up in 3 months.</div></div>
+    <div><h4>Extracted text → chunks + metadata</h4><div id="chunks" class="chunks"></div></div>
+  </div>
+  <button id="xform" class="cta sm">Run transformation</button>
+</div></div>
+
+<div class="modal" id="m-demo" hidden><div class="glass"><button class="x">Close</button>
+  <h3>Interactive question demo <small>(sample data, no live backend)</small></h3>
+  <p class="q">"What is the patient's current HbA1c level?"</p>
+  <div id="flow"></div>
+  <div id="out" class="answer"></div>
+  <button id="run" class="cta sm">Run sample retrieval</button>
+</div></div>
+
+<div class="modal" id="m-vs" hidden><div class="glass"><button class="x">Close</button>
+  <h3>General-purpose AI vs MED-RAG</h3>
+  <div class="two">
+    <div class="card"><h4>General-purpose AI assistant</h4><ul><li>Answers a very wide range of questions</li><li>Not built around one uploaded report</li></ul></div>
+    <div class="card hi"><h4>MED-RAG</h4><ul><li>Built to retrieve information from uploaded medical reports</li><li>Shows source filename and page for checking</li><li>Retrieval-based workflow</li><li>Can abstain when evidence is insufficient</li></ul></div>
+  </div>
+  <p class="small">This is a difference in design purpose, not a claim that MED-RAG is more accurate.</p>
+</div></div>
+
+<div id="end" hidden>
+  <h1>MED-RAG</h1>
+  <p class="big">From Documents to Evidence.<br>From Questions to Understandable Answers.</p>
+  <p>An evidence-grounded approach to medical document question answering.</p>
+  <button id="again" class="cta">[ REPLAY THE JOURNEY ]</button>
+</div>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
